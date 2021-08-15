@@ -82,8 +82,24 @@ const menu = [
       desc: `Red bean paste dessert, serving with honey.`,
     },
   ];
+  let buttonsOfDivDOM=document.querySelector(".btn-container");
+  let sectionDivDOM=document.querySelector(".section-center");
+  buttonsOfDivDOM.innerHTML=`<button onclick="">All</button><button>Korea</button><button>Japan</button><button>China</button>`
   
-function getKoreanFoods()
+  
+  menu.forEach(getAll);
+   function getAll(item,index)
+   {
+    sectionDivDOM.innerHTML+=`<div  class="col-md-6 menu-text"> 
+    <image class="photo" src="${item.img}" style="margin-right:20px;width:175px;height:175px;border-radius:5px;border:3px solid black; float:left;"></image>
+    <p class="menu-title" style=" float:left" >${item.title}<h3 style="text-align:right">${item.price}</h3></p>
+    
+   
+    <p class="menu-info">${item.desc}</p>
+     </div> 
+     `
+    }
+  function getKoreanFoods()
 {
     
     let constKoreanFoods=menu.map(item=>
