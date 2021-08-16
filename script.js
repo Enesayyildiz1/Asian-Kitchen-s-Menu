@@ -84,78 +84,93 @@ const menu = [
   ];
   let buttonsOfDivDOM=document.querySelector(".btn-container");
   let sectionDivDOM=document.querySelector(".section-center");
-  buttonsOfDivDOM.innerHTML=`<button onclick="">All</button><button>Korea</button><button>Japan</button><button>China</button>`
+  buttonsOfDivDOM.innerHTML=`<button id="all">All</button><button id="korea">Korea</button><button id="japan">Japan</button><button id="china">China</button>`
   
-  
-  menu.forEach(getAll);
-   function getAll(item,index)
-   {
-    sectionDivDOM.innerHTML+=`<div  class="col-md-6 menu-text"> 
-    <image class="photo" src="${item.img}" style="margin-right:20px;width:175px;height:175px;border-radius:5px;border:3px solid black; float:left;"></image>
-    <p class="menu-title" style=" float:left" >${item.title}<h3 style="text-align:right">${item.price}</h3></p>
+  let allButton=document.getElementById("all");
+  let chinaButton=document.getElementById("china");
+  let japanButton=document.getElementById("japan");
+  let koreaButton=document.getElementById("korea");
+  allButton.addEventListener("click",getAllFooods)
+  chinaButton.addEventListener("click",getChineseFoods)
+  japanButton.addEventListener("click",getJapaneseFoods)
+  koreaButton.addEventListener("click",getKoreanFoods)
+  getAllFooods();
+  function getAllFooods()
+  {sectionDivDOM.innerHTML="";
+    console.log("bastı");
+    menu.forEach(getAll);
+    function getAll(item,index)
+    {
+     sectionDivDOM.innerHTML+=`<div  class="col-md-6 menu-text"> 
+     <image class="photo" src="${item.img}" style="margin-right:20px;width:175px;height:175px;border-radius:5px;border:3px solid black; float:left;"></image>
+     <p class="menu-title" style=" float:left" >${item.title}<h3 style="text-align:right">${item.price}</h3></p>
+     
     
-   
-    <p class="menu-info">${item.desc}</p>
-     </div> 
-     `
-    }
+     <p class="menu-info">${item.desc}</p>
+      </div> 
+      `
+     }
+  
+  }
+
   function getKoreanFoods()
 {
+  sectionDivDOM.innerHTML="";
     
     let constKoreanFoods=menu.map(item=>
         { 
             if (item.category=="Korea") {
+             
 
-                console.log( {
-                    id:item.id,
-                    title:item.title,
-                    category:item.category,
-                    price:item.price,
-                    img:item.img,
-                    desc:item.desc
-                })
+              sectionDivDOM.innerHTML+=`<div  class="col-md-6 menu-text"> 
+              <image class="photo" src="${item.img}" style="margin-right:20px;width:175px;height:175px;border-radius:5px;border:3px solid black; float:left;"></image>
+              <p class="menu-title" style=" float:left" >${item.title}<h3 style="text-align:right">${item.price}</h3></p>
+              
+             
+              <p class="menu-info">${item.desc}</p>
+               </div> 
+               `
             }
-        })
+        });
+       
+
     
 }
-function getJapanFoods()
+function getJapaneseFoods()
 {
-    
+  sectionDivDOM.innerHTML="";
     let constKoreanFoods=menu.map(item=>
         { 
             if (item.category=="Japan") {
 
-                console.log( {
-                    id:item.id,
-                    title:item.title,
-                    category:item.category,
-                    price:item.price,
-                    img:item.img,
-                    desc:item.desc
-                })
+              sectionDivDOM.innerHTML+=`<div  class="col-md-6 menu-text"> 
+              <image class="photo" src="${item.img}" style="margin-right:20px;width:175px;height:175px;border-radius:5px;border:3px solid black; float:left;"></image>
+              <p class="menu-title" style=" float:left" >${item.title}<h3 style="text-align:right">${item.price}</h3></p>
+              
+             
+              <p class="menu-info">${item.desc}</p>
+               </div> 
+               `
             }
         })
     
 }
-function getChinaFoods()
+function getChineseFoods()
 {
-    
+  sectionDivDOM.innerHTML="";
     let constKoreanFoods=menu.map(item=>
         { 
             if (item.category=="China") {
 
-                console.log( {
-                    id:item.id,
-                    title:item.title,
-                    category:item.category,
-                    price:item.price,
-                    img:item.img,
-                    desc:item.desc
-                })
+              sectionDivDOM.innerHTML+=`<div  class="col-md-6 menu-text"> 
+              <image class="photo" src="${item.img}" style="margin-right:20px;width:175px;height:175px;border-radius:5px;border:3px solid black; float:left;"></image>
+              <p class="menu-title" style=" float:left" >${item.title}<h3 style="text-align:right">${item.price}</h3></p>
+              
+             
+              <p class="menu-info">${item.desc}</p>
+               </div> 
+               `
             }
         })
     
 }
-getChinaFoods();
-getKoreanFoods();
-getJapanFoods();
